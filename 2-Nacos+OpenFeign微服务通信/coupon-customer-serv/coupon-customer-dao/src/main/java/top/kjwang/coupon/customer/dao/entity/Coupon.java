@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import top.kjwang.coupon.customer.dao.converter.CouponStatusConverter;
 import top.kjwang.coupon.customer.api.enums.CouponStatus;
+import top.kjwang.coupon.customer.dao.converter.CouponStatusConverter;
 import top.kjwang.coupon.template.api.beans.CouponTemplateInfo;
 
 import java.util.Date;

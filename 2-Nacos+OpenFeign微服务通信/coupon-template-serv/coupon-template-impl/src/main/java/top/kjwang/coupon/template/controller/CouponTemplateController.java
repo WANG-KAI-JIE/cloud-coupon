@@ -67,6 +67,7 @@ public class CouponTemplateController {
     @GetMapping("/getBatch")
     public Map<Long, CouponTemplateInfo> getTemplateInBatch(@RequestParam("ids") Collection<Long> ids) {
         log.info("getTemplateInBatch: {}", JSON.toJSONString(ids));
+        log.info("getTemplateInBatch 被调用");
         return couponTemplateService.getTemplateInfoMap(ids);
     }
 

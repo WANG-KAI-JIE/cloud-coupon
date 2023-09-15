@@ -1,5 +1,6 @@
 server:
-  port: 20000
+  port: 0
+#  port: 20000
 spring:
   application:
     name: coupon-template-serv
@@ -46,12 +47,12 @@ spring:
       max-lifetime: 60000
       auto-commit: true
   jpa:
-    show-sql: true
+#    show-sql: true
     hibernate:
       # 在生产环境全部为 none，防止 ddl 结构被自动执行，破坏生产数据
       ddl-auto: none
     # 在日志中打印经过格式化的SQL语句
-    properties:
-      hibernate.format_sql: true
-      hibernate.show_sql: true
+#    properties:
+#      hibernate.format_sql: true
+#      hibernate.show_sql: true
     open-in-view: false

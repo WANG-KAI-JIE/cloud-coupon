@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import top.stx.coupon.template.api.beans.CouponInfo;
+import top.kjwang.coupon.template.api.beans.CouponInfo;
 
 import java.util.List;
 

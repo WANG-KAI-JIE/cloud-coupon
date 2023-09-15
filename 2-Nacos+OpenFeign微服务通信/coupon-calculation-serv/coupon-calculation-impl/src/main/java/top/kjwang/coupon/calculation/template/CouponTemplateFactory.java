@@ -4,14 +4,13 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
-import top.kjwang.coupon.calculation.template.impl.*;
 import top.kjwang.coupon.calculation.api.beans.ShoppingCart;
-
+import top.kjwang.coupon.calculation.template.impl.*;
 import top.kjwang.coupon.template.api.beans.CouponTemplateInfo;
 import top.kjwang.coupon.template.api.enums.CouponType;
 
 /**
- * @author mqxu
+ * @author kjwang
  * @date 2023/9/8
  * @description CouponTemplateFactory——工厂方法根据订单中的优惠券信息，返回对应的Template用于计算优惠价
  **/

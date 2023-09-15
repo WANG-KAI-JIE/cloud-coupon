@@ -10,7 +10,7 @@ import top.kjwang.coupon.calculation.api.beans.SimulationResponse;
 import top.kjwang.coupon.calculation.service.CouponCalculationService;
 
 /**
- * @author mqxu
+ * @author kjwang
  * @date 2023/9/8
  * @description CouponCalculationController
  **/
