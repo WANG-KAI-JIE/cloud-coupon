@@ -7,6 +7,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Example;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -22,12 +23,8 @@ import top.kjwang.coupon.customer.dao.entity.Coupon;
 import top.kjwang.coupon.customer.service.CouponCustomerService;
 import top.kjwang.coupon.template.api.beans.CouponInfo;
 import top.kjwang.coupon.template.api.beans.CouponTemplateInfo;
-import top.kjwang.coupon.template.service.CouponTemplateService;
 
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -39,201 +36,208 @@ import java.util.stream.Collectors;
 @Service
 public class CouponCustomerServiceImpl implements CouponCustomerService {
 
-	@Resource
-	private CouponDao couponDao;
+    @Resource
+    private CouponDao couponDao;
 
-	/**
-	 * 注入 WebClient.Builder 对象
-	 */
-	@Resource
-	private WebClient.Builder webClientBuilder;
-
-	private CouponTemplateInfo loadTemplateInfo(Long templateId) {
-		return webClientBuilder.build().get()
-				.uri("http://coupon-template-serv/template/getTemplate?id=" + templateId)
-				.retrieve()
-				.bodyToMono(CouponTemplateInfo.class)
-				.block();
-	}
+    /**
+     * 注入 WebClient.Builder 对象
+     */
+    @Resource
+    private WebClient.Builder webClientBuilder;
 
 
-	@Override
-	public SimulationResponse simulateOrderPrice(SimulationOrder order) {
-		List<CouponInfo> couponInfos = Lists.newArrayList();
-		// 挨个循环，把优惠券信息加载出来
-		// 高并发场景下不能这么一个个循环，更好的做法是批量查询
-		// 而且券模板一旦创建不会改内容，所以在创建端做数据异构放到缓存里，使用端从缓存捞template信息
-		for (Long couponId : order.getCouponIDs()) {
-			Coupon example = Coupon.builder()
-					.userId(order.getUserId())
-					.id(couponId)
-					.status(CouponStatus.AVAILABLE)
-					.build();
-			Optional<Coupon> couponOptional = couponDao.findAll(Example.of(example))
-					.stream()
-					.findFirst();
-			// 加载优惠券模板信息
-			if (couponOptional.isPresent()) {
-				Coupon coupon = couponOptional.get();
-				CouponInfo couponInfo = CouponConverter.convertToCoupon(coupon);
-				couponInfo.setTemplate(loadTemplateInfo(coupon.getTemplateId()));
-				couponInfos.add(couponInfo);
-			}
-		}
-		order.setCouponInfos(couponInfos);
+    private CouponTemplateInfo loadTemplateInfo(Long templateId) {
+        return webClientBuilder.build().get()
+                .uri("http://coupon-template-serv/template/getTemplate?id=" + templateId)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(CouponTemplateInfo.class)
+                .block();
+    }
 
-		// WebClient 调用试算服务
-		return webClientBuilder.build().post()
-				.uri("http://coupon-calculation-serv/calculator/simulate")
-				.bodyValue(order)
-				.retrieve().bodyToMono(SimulationResponse.class).block();
-	}
 
-	/**
-	 * 用户查询优惠券的接口
-	 */
-	@Override
-	public List<CouponInfo> findCoupon(SearchCoupon request) {
-		// 在真正的生产环境，这个接口需要做分页查询，并且查询条件要封装成一个类
-		Coupon example = Coupon.builder()
-				.userId(request.getUserId())
-				.status(CouponStatus.convert(request.getCouponStatus()))
-				.shopId(request.getShopId())
-				.build();
+    @Override
+    public SimulationResponse simulateOrderPrice(SimulationOrder order) {
+        List<CouponInfo> couponInfos = Lists.newArrayList();
+        // 挨个循环，把优惠券信息加载出来
+        // 高并发场景下不能这么一个个循环，更好的做法是批量查询
+        // 而且券模板一旦创建不会改内容，所以在创建端做数据异构放到缓存里，使用端从缓存捞template信息
+        for (Long couponId : order.getCouponIDs()) {
+            Coupon example = Coupon.builder()
+                    .userId(order.getUserId())
+                    .id(couponId)
+                    .status(CouponStatus.AVAILABLE)
+                    .build();
+            Optional<Coupon> couponOptional = couponDao.findAll(Example.of(example))
+                    .stream()
+                    .findFirst();
+            // 加载优惠券模板信息
+            if (couponOptional.isPresent()) {
+                Coupon coupon = couponOptional.get();
+                CouponInfo couponInfo = CouponConverter.convertToCoupon(coupon);
+                couponInfo.setTemplate(loadTemplateInfo(coupon.getTemplateId()));
+                couponInfos.add(couponInfo);
+            }
+        }
+        order.setCouponInfos(couponInfos);
 
-		// 这里你可以尝试实现分页查询
-		List<Coupon> coupons = couponDao.findAll(Example.of(example));
-		if (coupons.isEmpty()) {
-			return Lists.newArrayList();
-		}
+        // WebClient 调用试算服务
+        return webClientBuilder.build().post()
+                .uri("http://coupon-calculation-serv/calculator/simulate")
+                .bodyValue(order)
+                .retrieve()
+                .bodyToMono(SimulationResponse.class)
+                .block();
+    }
 
-		List<Long> templateIds = coupons.stream()
-				.map(Coupon::getTemplateId)
-				.collect(Collectors.toList());
+    /**
+     * 用户查询优惠券的接口
+     */
+    @Override
+    public List<CouponInfo> findCoupon(SearchCoupon request) {
+        // 在真正的生产环境，这个接口需要做分页查询，并且查询条件要封装成一个类
+        Coupon example = Coupon.builder()
+                .userId(request.getUserId())
+                .status(CouponStatus.convert(request.getCouponStatus()))
+                .shopId(request.getShopId())
+                .build();
 
-		// 通过 WebClient 调用远程服务
-		Map<Long, CouponTemplateInfo> templateMap = webClientBuilder.build().get()
-				.uri("http://coupon-template-serv/template/getBatch?ids=" + templateIds)
-				.retrieve()
-				.bodyToMono(new ParameterizedTypeReference<Map<Long, CouponTemplateInfo>>() {
-				})
-				.block();
-		coupons.forEach(e -> e.setTemplateInfo(templateMap.get(e.getTemplateId())));
+        // 这里你可以尝试实现分页查询
+        List<Coupon> coupons = couponDao.findAll(Example.of(example));
+        if (coupons.isEmpty()) {
+            return Lists.newArrayList();
+        }
 
-		return coupons.stream()
-				.map(CouponConverter::convertToCoupon)
-				.collect(Collectors.toList());
-	}
+        List<Long> templateIds = coupons.stream()
+                .map(Coupon::getTemplateId)
+                .toList();
 
-	/**
-	 * 用户领取优惠券
-	 */
-	@Override
-	public Coupon requestCoupon(RequestCoupon request) {
-		CouponTemplateInfo templateInfo = loadTemplateInfo(request.getCouponTemplateId());
+        // 通过 WebClient 调用远程服务
+        Map<Long, CouponTemplateInfo> map = webClientBuilder.build()
+                .get()
+                .uri("http://coupon-template-serv/template/getBatch?ids=" + templateIds)
+                .retrieve()
+                //  设置返回值类型
+                .bodyToMono(new ParameterizedTypeReference<Map<Long, CouponTemplateInfo>>() {
+                })
+                .block();
 
-		// 模板不存在则报错
-		if (templateInfo == null) {
-			log.error("invalid template id={}", request.getCouponTemplateId());
-			throw new IllegalArgumentException("Invalid template id");
-		}
 
-		// 模板不能过期
-		long now = Calendar.getInstance().getTimeInMillis();
-		Long expTime = templateInfo.getRule().getDeadline();
-		if (expTime != null && now >= expTime || BooleanUtils.isFalse(templateInfo.getAvailable())) {
-			log.error("template is not available id={}", request.getCouponTemplateId());
-			throw new IllegalArgumentException("template is unavailable");
-		}
+        coupons.forEach(e -> e.setTemplateInfo(Objects.requireNonNull(map).get(e.getTemplateId())));
 
-		// 用户领券数量超过上限
-		long count = couponDao.countByUserIdAndTemplateId(request.getUserId(), request.getCouponTemplateId());
-		if (count >= templateInfo.getRule().getLimitation()) {
-			log.error("exceeds maximum number");
-			throw new IllegalArgumentException("exceeds maximum number");
-		}
+        return coupons.stream()
+                .map(CouponConverter::convertToCoupon)
+                .collect(Collectors.toList());
+    }
 
-		Coupon coupon = Coupon.builder()
-				.templateId(request.getCouponTemplateId())
-				.userId(request.getUserId())
-				.shopId(templateInfo.getShopId())
-				.status(CouponStatus.AVAILABLE)
-				.build();
-		couponDao.save(coupon);
-		return coupon;
-	}
+    /**
+     * 用户领取优惠券
+     */
+    @Override
+    public Coupon requestCoupon(RequestCoupon request) {
+        CouponTemplateInfo templateInfo = loadTemplateInfo(request.getCouponTemplateId());
 
-	@Override
-	@Transactional
-	public ShoppingCart placeOrder(ShoppingCart order) {
-		if (CollectionUtils.isEmpty(order.getProducts())) {
-			log.error("invalid check out request, order={}", order);
-			throw new IllegalArgumentException("cart if empty");
-		}
+        // 模板不存在则报错
+        if (templateInfo == null) {
+            log.error("invalid template id={}", request.getCouponTemplateId());
+            throw new IllegalArgumentException("Invalid template id");
+        }
 
-		Coupon coupon = null;
-		if (order.getCouponId() != null) {
-			// 如果有优惠券，验证是否可用，并且是当前客户的
-			Coupon example = Coupon.builder()
-					.userId(order.getUserId())
-					.id(order.getCouponId())
-					.status(CouponStatus.AVAILABLE)
-					.build();
-			coupon = couponDao.findAll(Example.of(example))
-					.stream()
-					.findFirst()
-					// 如果找不到券，就抛出异常
-					.orElseThrow(() -> new RuntimeException("Coupon not found"));
+        // 模板不能过期
+        long now = Calendar.getInstance().getTimeInMillis();
+        Long expTime = templateInfo.getRule().getDeadline();
+        if (expTime != null && now >= expTime || BooleanUtils.isFalse(templateInfo.getAvailable())) {
+            log.error("template is not available id={}", request.getCouponTemplateId());
+            throw new IllegalArgumentException("template is unavailable");
+        }
 
-			CouponInfo couponInfo = CouponConverter.convertToCoupon(coupon);
-			couponInfo.setTemplate(loadTemplateInfo(coupon.getTemplateId()));
-			order.setCouponInfos(Lists.newArrayList(couponInfo));
-		}
+        // 用户领券数量超过上限
+        long count = couponDao.countByUserIdAndTemplateId(request.getUserId(), request.getCouponTemplateId());
+        if (count >= templateInfo.getRule().getLimitation()) {
+            log.error("exceeds maximum number");
+            throw new IllegalArgumentException("exceeds maximum number");
+        }
 
-		// order清算
-		ShoppingCart checkoutInfo = webClientBuilder.build().post()
-				.uri("http://coupon-calculation-serv/calculator/checkout")
-				.bodyValue(order)
-				.retrieve()
-				.bodyToMono(ShoppingCart.class)
-				.block();
+        Coupon coupon = Coupon.builder()
+                .templateId(request.getCouponTemplateId())
+                .userId(request.getUserId())
+                .shopId(templateInfo.getShopId())
+                .status(CouponStatus.AVAILABLE)
+                .build();
+        couponDao.save(coupon);
+        return coupon;
+    }
 
-		if (coupon != null) {
-			// 如果优惠券没有被结算掉，而用户传递了优惠券，报错提示该订单满足不了优惠条件
-			assert checkoutInfo != null;
-			if (CollectionUtils.isEmpty(checkoutInfo.getCouponInfos())) {
-				log.error("cannot apply coupon to order, couponId={}", coupon.getId());
-				throw new IllegalArgumentException("coupon is not applicable to this order");
-			}
+    @Override
+    @Transactional
+    public ShoppingCart placeOrder(ShoppingCart order) {
+        if (CollectionUtils.isEmpty(order.getProducts())) {
+            log.error("invalid check out request, order={}", order);
+            throw new IllegalArgumentException("cart if empty");
+        }
 
-			log.info("update coupon status to used, couponId={}", coupon.getId());
-			coupon.setStatus(CouponStatus.USED);
-			couponDao.save(coupon);
-		}
+        Coupon coupon = null;
+        if (order.getCouponId() != null) {
+            // 如果有优惠券，验证是否可用，并且是当前客户的
+            Coupon example = Coupon.builder()
+                    .userId(order.getUserId())
+                    .id(order.getCouponId())
+                    .status(CouponStatus.AVAILABLE)
+                    .build();
+            coupon = couponDao.findAll(Example.of(example))
+                    .stream()
+                    .findFirst()
+                    // 如果找不到券，就抛出异常
+                    .orElseThrow(() -> new RuntimeException("Coupon not found"));
 
-		return checkoutInfo;
-	}
+            CouponInfo couponInfo = CouponConverter.convertToCoupon(coupon);
+            couponInfo.setTemplate(loadTemplateInfo(coupon.getTemplateId()));
+            order.setCouponInfos(Lists.newArrayList(couponInfo));
+        }
 
-	/**
-	 * 逻辑删除优惠券
-	 *
-	 * @param userId   用户id
-	 * @param couponId 优惠券id
-	 */
-	@Override
-	public void deleteCoupon(Long userId, Long couponId) {
-		Coupon example = Coupon.builder()
-				.userId(userId)
-				.id(couponId)
-				.status(CouponStatus.AVAILABLE)
-				.build();
-		Coupon coupon = couponDao.findAll(Example.of(example))
-				.stream()
-				.findFirst()
-				// 如果找不到券，就抛出异常
-				.orElseThrow(() -> new RuntimeException("Could not find available coupon"));
+        // order清算
+        ShoppingCart checkoutInfo = webClientBuilder.build().post()
+                .uri("http://coupon-calculation-serv/calculator/checkout")
+                .bodyValue(order)
+                .retrieve()
+                .bodyToMono(ShoppingCart.class)
+                .block();
 
-		coupon.setStatus(CouponStatus.INACTIVE);
-		couponDao.save(coupon);
-	}
+        if (coupon != null) {
+            // 如果优惠券没有被结算掉，而用户传递了优惠券，报错提示该订单满足不了优惠条件
+            if (CollectionUtils.isEmpty(Objects.requireNonNull(checkoutInfo).getCouponInfos())) {
+                log.error("cannot apply coupon to order, couponId={}", coupon.getId());
+                throw new IllegalArgumentException("coupon is not applicable to this order");
+            }
+
+            log.info("update coupon status to used, couponId={}", coupon.getId());
+            coupon.setStatus(CouponStatus.USED);
+            couponDao.save(coupon);
+        }
+
+        return checkoutInfo;
+    }
+
+    /**
+     * 逻辑删除优惠券
+     *
+     * @param userId   用户id
+     * @param couponId 优惠券id
+     */
+    @Override
+    public void deleteCoupon(Long userId, Long couponId) {
+        Coupon example = Coupon.builder()
+                .userId(userId)
+                .id(couponId)
+                .status(CouponStatus.AVAILABLE)
+                .build();
+        Coupon coupon = couponDao.findAll(Example.of(example))
+                .stream()
+                .findFirst()
+                // 如果找不到券，就抛出异常
+                .orElseThrow(() -> new RuntimeException("Could not find available coupon"));
+
+        coupon.setStatus(CouponStatus.INACTIVE);
+        couponDao.save(coupon);
+    }
 }

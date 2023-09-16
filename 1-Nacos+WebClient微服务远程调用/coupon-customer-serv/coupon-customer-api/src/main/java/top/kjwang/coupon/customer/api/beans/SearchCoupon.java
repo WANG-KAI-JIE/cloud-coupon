@@ -7,17 +7,18 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author kjwang
- * @date 2023/9/8 18:30
+ * @date 2023/9/8
  * @description SearchCoupon
- */
-
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SearchCoupon {
 
-	@NotNull
-	private Long userId;
-	private Long shopId;
-	private Integer couponStatus;
+    @NotNull
+    private Long userId;
+
+    private Long shopId;
+
+    private Integer couponStatus;
 }

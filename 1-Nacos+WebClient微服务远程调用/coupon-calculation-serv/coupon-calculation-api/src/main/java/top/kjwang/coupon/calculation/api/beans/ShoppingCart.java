@@ -11,27 +11,27 @@ import java.util.List;
 
 /**
  * @author kjwang
- * @date 2023/9/8 16:33
+ * @date 2023/9/8
  * @description ShoppingCart
- */
-
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShoppingCart {
 
-	@NotEmpty
-	private List<Product> products;
+    @NotEmpty
+    private List<Product> products;
 
-	private Long couponId;
+    private Long couponId;
 
-	private Long cost;
+    private Long cost;
 
-	/**
-	 * 目前只支持单张优惠券，为了以后的扩展考虑，可以添加多个优惠券的计算逻辑，所以用 List
-	 */
-	private List<CouponInfo> couponInfos;
+    /**
+     * 目前只支持单张优惠券,为了以后的扩展考虑，可以添加多个优惠券的计算逻辑，所以用 List
+     */
+    private List<CouponInfo> couponInfos;
 
-	@NotNull
-	private Long userId;
+    @NotNull
+    private Long userId;
+
 }

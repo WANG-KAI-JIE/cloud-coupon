@@ -9,19 +9,19 @@ import java.util.List;
 
 /**
  * @author kjwang
- * @date 2023/9/8 15:17
- * @description PageCouponTemplateInfo——封装分页信息
- */
-
+ * @date 2023/9/8
+ * @description PagedCouponTemplateInfo——封装分页信息
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class PagedCouponTemplateInfo {
 
-	public List<CouponTemplateInfo> templates;
+    public List<CouponTemplateInfo> templates;
 
-	public int page;
+    public Integer page;
 
-	public long total;
+    public Long total;
+
 }
