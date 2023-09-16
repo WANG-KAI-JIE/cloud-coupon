@@ -7,6 +7,11 @@ import top.kjwang.coupon.template.api.beans.TemplateSearchParams;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponTemplateService——定义了优惠券创建、查找优惠券和修改优惠券可用状态的方法。
+ **/
 public interface CouponTemplateService {
     /**
      * 创建优惠券模板

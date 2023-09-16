@@ -1,13 +1,20 @@
 package top.kjwang.coupon.calculation.api.beans;
+
 import com.google.common.collect.Maps;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description SimulationResponse——试算优惠返回结果
+ **/
 @Data
 @NoArgsConstructor
 public class SimulationResponse {
+
     /**
      * 最省钱的 coupon id
      */
@@ -19,3 +26,4 @@ public class SimulationResponse {
     private Map<Long, Long> couponToOrderPrice = Maps.newHashMap();
 
 }
+

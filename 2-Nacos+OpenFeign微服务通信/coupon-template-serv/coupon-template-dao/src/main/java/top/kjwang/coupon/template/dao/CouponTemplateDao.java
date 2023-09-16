@@ -9,6 +9,12 @@ import org.springframework.data.repository.query.Param;
 import top.kjwang.coupon.template.dao.entity.CouponTemplate;
 
 import java.util.List;
+
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponTemplateDao
+ **/
 public interface CouponTemplateDao extends JpaRepository<CouponTemplate, Long> {
 
     /**

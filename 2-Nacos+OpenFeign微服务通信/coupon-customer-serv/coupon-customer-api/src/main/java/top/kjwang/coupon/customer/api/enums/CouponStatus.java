@@ -5,25 +5,29 @@ import lombok.Getter;
 
 import java.util.stream.Stream;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponStatus——优惠券的状态
+ **/
 @Getter
 @AllArgsConstructor
 public enum CouponStatus {
 
-    UNKOWN("UNKOWN", 0),
-    AVAILABLE("AVAILABLE", 1),
-    USED("USED", 2),
-    INACTIVE("INACTIVE", 3);
-//    NIGHT_MONEY_OFF("晚间双倍优惠券", 4);
-//    NIGHT_MONEY_OFF("午夜下单优惠翻倍", "5");
+    AVAILABLE("未使用", 1),
+    USED("已用", 2),
+    INACTIVE("已经注销", 3);
 
-    private final String description;
+    private final String desc;
     private final Integer code;
 
     public static CouponStatus convert(Integer code) {
+        if (code == null) {
+            return null;
+        }
         return Stream.of(values())
                 .filter(bean -> bean.code.equals(code))
-                .findFirst()
-                .orElse(UNKOWN);
+                .findAny()
+                .orElse(null);
     }
-
 }

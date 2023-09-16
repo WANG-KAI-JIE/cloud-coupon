@@ -12,6 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description AbstractRuleTemplate——定义通用的计算逻辑
+ **/
 @Slf4j
 public abstract class AbstractRuleTemplate implements RuleTemplate {
 

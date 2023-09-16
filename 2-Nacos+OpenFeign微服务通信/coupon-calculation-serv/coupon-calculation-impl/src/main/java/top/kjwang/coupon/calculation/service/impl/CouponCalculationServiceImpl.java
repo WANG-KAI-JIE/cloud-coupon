@@ -2,7 +2,6 @@ package top.kjwang.coupon.calculation.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +13,13 @@ import top.kjwang.coupon.calculation.template.CouponTemplateFactory;
 import top.kjwang.coupon.calculation.template.RuleTemplate;
 import top.kjwang.coupon.template.api.beans.CouponInfo;
 
+import javax.annotation.Resource;
+
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponCalculationServiceImpl
+ **/
 @Slf4j
 @Service
 public class CouponCalculationServiceImpl implements CouponCalculationService {
@@ -68,3 +74,4 @@ public class CouponCalculationServiceImpl implements CouponCalculationService {
         return response;
     }
 }
+

@@ -16,9 +16,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
-        <!-- DAO层理论上不应该依赖API层，这里省事用了一套POJO从前到后传递 -->
-        <!-- 正确的做法是dao层定义自己的DTO，然后上层用一个converter再转化成API里的类 -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>coupon-template-api</artifactId>
@@ -38,7 +37,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
+            <version>8.0.23</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>

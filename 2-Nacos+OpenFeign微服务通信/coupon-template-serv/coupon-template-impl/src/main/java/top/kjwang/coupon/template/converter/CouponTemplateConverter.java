@@ -3,6 +3,11 @@ package top.kjwang.coupon.template.converter;
 import top.kjwang.coupon.template.api.beans.CouponTemplateInfo;
 import top.kjwang.coupon.template.dao.entity.CouponTemplate;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponTemplateConverter
+ **/
 public class CouponTemplateConverter {
 
     public static CouponTemplateInfo convertToTemplateInfo(CouponTemplate template) {

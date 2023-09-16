@@ -5,6 +5,11 @@ import lombok.Getter;
 
 import java.util.stream.Stream;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponType-表示优惠券类型
+ **/
 @Getter
 @AllArgsConstructor
 public enum CouponType {

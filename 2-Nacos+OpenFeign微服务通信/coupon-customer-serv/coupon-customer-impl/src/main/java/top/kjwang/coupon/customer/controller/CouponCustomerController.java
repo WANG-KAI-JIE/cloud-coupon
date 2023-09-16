@@ -1,7 +1,5 @@
 package top.kjwang.coupon.customer.controller;
 
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import top.kjwang.coupon.calculation.api.beans.ShoppingCart;
@@ -13,6 +11,8 @@ import top.kjwang.coupon.customer.dao.entity.Coupon;
 import top.kjwang.coupon.customer.service.CouponCustomerService;
 import top.kjwang.coupon.template.api.beans.CouponInfo;
 
+import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -40,8 +40,7 @@ public class CouponCustomerController {
      * @param couponId 优惠券id
      */
     @DeleteMapping("deleteCoupon")
-    public void deleteCoupon(@RequestParam("userId") Long userId,
-                             @RequestParam("couponId") Long couponId) {
+    public void deleteCoupon(@RequestParam("userId") Long userId, @RequestParam("couponId") Long couponId) {
         customerService.deleteCoupon(userId, couponId);
     }
 
@@ -76,6 +75,7 @@ public class CouponCustomerController {
      */
     @PostMapping("findCoupon")
     public List<CouponInfo> findCoupon(@Valid @RequestBody SearchCoupon request) {
+        log.info("findCoupon 被调用");
         return customerService.findCoupon(request);
     }
 

@@ -4,10 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description Discount——定义了使用优惠券的规则
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Discount {
+
     /**
      * 满减 - 减掉的钱数
      * 折扣 - 90 = 9折,  95=95折

@@ -1,5 +1,5 @@
 package top.kjwang.coupon.template.dao.entity;
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +11,15 @@ import top.kjwang.coupon.template.api.enums.CouponType;
 import top.kjwang.coupon.template.dao.converter.CouponTypeConverter;
 import top.kjwang.coupon.template.dao.converter.RuleConverter;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponTemplate
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

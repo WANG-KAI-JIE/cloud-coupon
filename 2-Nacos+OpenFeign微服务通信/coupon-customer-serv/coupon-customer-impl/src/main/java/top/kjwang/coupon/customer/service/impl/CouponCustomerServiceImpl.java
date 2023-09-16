@@ -1,7 +1,6 @@
 package top.kjwang.coupon.customer.service.impl;
 
 import com.google.common.collect.Lists;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.BooleanUtils;
@@ -22,9 +21,16 @@ import top.kjwang.coupon.customer.feign.TemplateService;
 import top.kjwang.coupon.customer.service.CouponCustomerService;
 import top.kjwang.coupon.template.api.beans.CouponInfo;
 import top.kjwang.coupon.template.api.beans.CouponTemplateInfo;
+
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponCustomerServiceImpl
+ **/
 @Slf4j
 @Service
 public class CouponCustomerServiceImpl implements CouponCustomerService {
@@ -58,13 +64,12 @@ public class CouponCustomerServiceImpl implements CouponCustomerService {
             if (couponOptional.isPresent()) {
                 Coupon coupon = couponOptional.get();
                 CouponInfo couponInfo = CouponConverter.convertToCoupon(coupon);
-                couponInfo.setTemplate(templateService.getTemplate(coupon.getTemplateId()));
+                couponInfo.setTemplate(templateService.getTemplate(couponInfo.getTemplateId()));
                 couponInfos.add(couponInfo);
             }
         }
         order.setCouponInfos(couponInfos);
 
-        // 调用接口试算服务
         return calculationService.simulate(order);
     }
 
@@ -88,9 +93,12 @@ public class CouponCustomerServiceImpl implements CouponCustomerService {
 
         List<Long> templateIds = coupons.stream()
                 .map(Coupon::getTemplateId)
-                .collect(Collectors.toList());
-        Map<Long, CouponTemplateInfo> templateMap = templateService.getTemplateInBatch(templateIds);
-        coupons.forEach(e -> e.setTemplateInfo(Objects.requireNonNull(templateMap).get(e.getTemplateId())));
+                .toList();
+
+        // 通过 WebClient 调用远程服务
+        Map<Long, CouponTemplateInfo> map = templateService.getTemplateInBatch(templateIds);
+
+        coupons.forEach(e -> e.setTemplateInfo(Objects.requireNonNull(map).get(e.getTemplateId())));
 
         return coupons.stream()
                 .map(CouponConverter::convertToCoupon)
@@ -131,6 +139,7 @@ public class CouponCustomerServiceImpl implements CouponCustomerService {
                 .shopId(templateInfo.getShopId())
                 .status(CouponStatus.AVAILABLE)
                 .build();
+
         couponDao.save(coupon);
         return coupon;
     }
@@ -158,7 +167,7 @@ public class CouponCustomerServiceImpl implements CouponCustomerService {
                     .orElseThrow(() -> new RuntimeException("Coupon not found"));
 
             CouponInfo couponInfo = CouponConverter.convertToCoupon(coupon);
-            couponInfo.setTemplate(templateService.getTemplate(coupon.getTemplateId()));
+            couponInfo.setTemplate(templateService.getTemplate(couponInfo.getTemplateId()));
             order.setCouponInfos(Lists.newArrayList(couponInfo));
         }
 
@@ -167,7 +176,7 @@ public class CouponCustomerServiceImpl implements CouponCustomerService {
 
         if (coupon != null) {
             // 如果优惠券没有被结算掉，而用户传递了优惠券，报错提示该订单满足不了优惠条件
-            if (CollectionUtils.isEmpty(checkoutInfo.getCouponInfos())) {
+            if (CollectionUtils.isEmpty(Objects.requireNonNull(checkoutInfo).getCouponInfos())) {
                 log.error("cannot apply coupon to order, couponId={}", coupon.getId());
                 throw new IllegalArgumentException("coupon is not applicable to this order");
             }

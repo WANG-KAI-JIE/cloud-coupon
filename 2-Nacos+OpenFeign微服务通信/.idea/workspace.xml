@@ -4,48 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e18563-85b5-4db4-a5fa-fe5c20fbc888" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-api/src/main/java/top/kjwang/coupon/calculation/api/beans/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-api/src/main/java/top/kjwang/coupon/calculation/api/beans/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-api/src/main/java/top/kjwang/coupon/calculation/api/beans/SimulationOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-api/src/main/java/top/kjwang/coupon/calculation/api/beans/SimulationOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/CalculationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/CalculationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/controller/CouponCalculationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/controller/CouponCalculationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/service/CouponCalculationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/service/CouponCalculationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/service/impl/CouponCalculationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/service/impl/CouponCalculationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/template/CouponTemplateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/template/CouponTemplateFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/template/impl/DummyTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-calculation-serv/coupon-calculation-impl/src/main/java/top/kjwang/coupon/calculation/template/impl/DummyTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-dao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-dao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-dao/src/main/java/top/kjwang/coupon/customer/dao/entity/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-dao/src/main/java/top/kjwang/coupon/customer/dao/entity/Coupon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/java/top/kjwang/coupon/customer/controller/CouponCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/java/top/kjwang/coupon/customer/controller/CouponCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/java/top/kjwang/coupon/customer/feign/TemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/java/top/kjwang/coupon/customer/feign/TemplateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/java/top/kjwang/coupon/customer/service/impl/CouponCustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/java/top/kjwang/coupon/customer/service/impl/CouponCustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-customer-serv/coupon-customer-impl/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-template-serv/coupon-template-impl/src/main/java/top/kjwang/coupon/template/controller/CouponTemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-template-serv/coupon-template-impl/src/main/java/top/kjwang/coupon/template/controller/CouponTemplateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-template-serv/coupon-template-impl/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-template-serv/coupon-template-impl/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d6fe133a-1ef8-4776-89e4-ece710416ed0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="package-info" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,17 +16,12 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="$USER_HOME$/tools/maven_jar" />
-        <option name="mavenHome" value="$USER_HOME$/tools/apache-maven-3.9.0" />
         <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="$USER_HOME$/tools/apache-maven-3.9.0/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2V6PcOcdjfZPTo8qfR0FdOvq9V3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2VTwg6u029poD7VAqq7aHGb0MG2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -77,30 +35,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/Users/wangkaijie/Desktop/cloud-coupon/2-Nacos+OpenFeign微服务通信/coupon-template-serv/coupon-template-impl",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "11f0545ef2d5d26ac14421a95914fa90",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "cafccde5d5de0b3c06b89dcced84ed94",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/coupon-template-serv/coupon-template-impl" />
-      <recent name="F:\cloud-coupon\2-Nacos+OpenFeign微服务通信\coupon-customer-serv\coupon-customer-impl\src\main\java\top\stx\coupon\customer\loadbalance" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="top.stx.coupon.customer.feign.fallback" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -109,104 +56,48 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.CustomerApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="coupon-calculation-api" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="coupon-calculation-api" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CalculationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="coupon-calculation-impl" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.kjwang.coupon.calculation.CalculationApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.kjwang.coupon.calculation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="coupon-customer-impl" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.kjwang.coupon.customer.CustomerApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.kjwang.coupon.customer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TemplateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="TemplateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="coupon-template-impl" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="top.kjwang.coupon.template.TemplateApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="top.kjwang.coupon.template.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.CustomerApplication" />
-        <item itemvalue="Spring Boot.CalculationApplication" />
-        <item itemvalue="Spring Boot.TemplateApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="65e18563-85b5-4db4-a5fa-fe5c20fbc888" name="Changes" comment="" />
-      <created>1694153634708</created>
+      <changelist id="d6fe133a-1ef8-4776-89e4-ece710416ed0" name="Changes" comment="" />
+      <created>1694873487403</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694153634708</updated>
-      <workItem from="1694153635877" duration="10341000" />
-      <workItem from="1694220924208" duration="7026000" />
-      <workItem from="1694649341787" duration="603000" />
-      <workItem from="1694652615067" duration="5087000" />
-      <workItem from="1694658192896" duration="3502000" />
-      <workItem from="1694664075725" duration="21000" />
-      <workItem from="1694755340505" duration="6854000" />
-      <workItem from="1694768840834" duration="136000" />
-      <workItem from="1694768979505" duration="61000" />
-      <workItem from="1694769050927" duration="62000" />
-      <workItem from="1694769172689" duration="75000" />
-      <workItem from="1694769253927" duration="177000" />
-      <workItem from="1694769437400" duration="124000" />
-      <workItem from="1694769567242" duration="1320000" />
-      <workItem from="1694773459812" duration="1120000" />
+      <updated>1694873487403</updated>
+      <workItem from="1694873488794" duration="60000" />
+      <workItem from="1694873554233" duration="318000" />
+      <workItem from="1694874162809" duration="12000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
 </project>

@@ -1,17 +1,24 @@
 package top.kjwang.coupon.calculation.api.beans;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import top.kjwang.coupon.template.api.beans.CouponInfo;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description ShoppingCart
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShoppingCart {
+
     @NotEmpty
     private List<Product> products;
 
@@ -26,4 +33,5 @@ public class ShoppingCart {
 
     @NotNull
     private Long userId;
+
 }

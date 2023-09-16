@@ -8,6 +8,11 @@ import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
+/**
+ * @author kjwang
+ * @date 2023/9/15
+ * @description NacosLoadBalancerConfig
+ **/
 @LoadBalancerClients(defaultConfiguration = NacosLoadBalancerConfig.class)
 public class NacosLoadBalancerConfig {
 
@@ -16,4 +21,5 @@ public class NacosLoadBalancerConfig {
         String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
         return new NacosWeightRandomLoadBalancer(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
     }
+
 }

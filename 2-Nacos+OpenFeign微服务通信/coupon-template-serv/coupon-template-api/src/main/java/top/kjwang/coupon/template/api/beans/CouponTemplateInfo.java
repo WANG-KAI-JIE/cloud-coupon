@@ -1,19 +1,25 @@
 package top.kjwang.coupon.template.api.beans;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import top.kjwang.coupon.template.api.beans.rules.TemplateRule;
 
+import javax.validation.constraints.NotNull;
+
+
 /**
- 封装优惠券模板的基本信息
+ * @author kjwang
+ * @date 2023/9/8
+ * @description CouponTemplateInfo——封装优惠券模板的基本信息
  **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class CouponTemplateInfo {
+
     private Long id;
 
     @NotNull
@@ -46,4 +52,5 @@ public class CouponTemplateInfo {
      * 当前模板是否为可用状态
      */
     private Boolean available;
+
 }

@@ -4,10 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description Product
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
+
     /**
      * 商品id
      */

@@ -16,7 +16,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>coupon-customer-dao</artifactId>
@@ -25,13 +27,13 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>coupon-calculation-impl</artifactId>
+            <artifactId>coupon-calculation-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>coupon-template-impl</artifactId>
+            <artifactId>coupon-template-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -39,7 +41,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- Nacos服务发现组件 -->
+
+        <!-- Nacos 服务发现组件 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -51,21 +54,26 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
+        <!-- openfeign 组件 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+        <!-- hystrix 组件，专门用来演示 OpenFeign 降级 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
             <version>2.2.10.RELEASE</version>
             <exclusions>
+                <!-- 移除Ribbon负载均衡器 -->
                 <exclusion>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-netflix-ribbon</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -83,4 +91,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

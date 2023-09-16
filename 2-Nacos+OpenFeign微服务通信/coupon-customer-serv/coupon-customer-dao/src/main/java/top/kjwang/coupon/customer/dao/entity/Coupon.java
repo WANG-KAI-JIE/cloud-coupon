@@ -1,6 +1,5 @@
 package top.kjwang.coupon.customer.dao.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +10,7 @@ import top.kjwang.coupon.customer.api.enums.CouponStatus;
 import top.kjwang.coupon.customer.dao.converter.CouponStatusConverter;
 import top.kjwang.coupon.template.api.beans.CouponTemplateInfo;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**

@@ -1,9 +1,15 @@
 package top.kjwang.coupon.template.api.beans;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author kjwang
+ * @date 2023/9/8
+ * @description TemplateSearchParams——封装查询参数
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
