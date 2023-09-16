@@ -7,20 +7,24 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author kjwang
- * @date 2023/9/8 18:27
+ * @date 2023/9/8
  * @description RequestCoupon
- */
-
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RequestCoupon {
 
-	// 用户领券
-	@NotNull
-	private Long userId;
+    /**
+     * 用户 id
+     */
+    @NotNull
+    private Long userId;
 
-	// 券模版ID
-	@NotNull
-	private Long couponTemplateId;
+    /**
+     * 券模板 id
+     */
+    @NotNull
+    private Long couponTemplateId;
+
 }

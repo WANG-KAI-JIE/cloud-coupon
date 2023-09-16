@@ -5,13 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author moqi
+ * @author kjwang
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"top.kjwang"})
 public class CalculationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CalculationApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CalculationApplication.class, args);
+    }
 }

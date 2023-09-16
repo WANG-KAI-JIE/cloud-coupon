@@ -8,21 +8,22 @@ import java.util.Map;
 
 /**
  * @author kjwang
- * @date 2023/9/8 16:38
- * @description SimulationResponse
- */
-
+ * @date 2023/9/8
+ * @description SimulationResponse——试算优惠返回结果
+ **/
 @Data
 @NoArgsConstructor
 public class SimulationResponse {
 
-	/**
-	 * 最省钱的 coupon id
-	 */
-	private Long bestCouponId;
+    /**
+     * 最省钱的 coupon id
+     */
+    private Long bestCouponId;
 
-	/**
-	 * 每一个 coupon 对应的 order 价格
-	 */
-	private Map<Long,Long> couponToOrderPrice = Maps.newHashMap();
+    /**
+     * 每一个coupon对应的order价格
+     */
+    private Map<Long, Long> couponToOrderPrice = Maps.newHashMap();
+
 }
+

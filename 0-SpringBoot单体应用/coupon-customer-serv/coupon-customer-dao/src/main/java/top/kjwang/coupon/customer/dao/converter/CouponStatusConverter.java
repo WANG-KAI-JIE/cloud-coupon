@@ -12,25 +12,25 @@ import top.kjwang.coupon.customer.api.enums.CouponStatus;
 @Converter
 public class CouponStatusConverter implements AttributeConverter<CouponStatus, Integer> {
 
-	/**
-	 * enum 转 DB value
-	 *
-	 * @param status enum
-	 * @return Integer
-	 */
-	@Override
-	public Integer convertToDatabaseColumn(CouponStatus status) {
-		return status.getCode();
-	}
+    /**
+     * enum 转DB value
+     *
+     * @param status enum
+     * @return Integer
+     */
+    @Override
+    public Integer convertToDatabaseColumn(CouponStatus status) {
+        return status.getCode();
+    }
 
-	/**
-	 * DB value 转 enum 值
-	 *
-	 * @param code DB value
-	 * @return CouponStatus
-	 */
-	@Override
-	public CouponStatus convertToEntityAttribute(Integer code) {
-		return CouponStatus.convert(code);
-	}
+    /**
+     * DB value 转 enum 值
+     *
+     * @param code DB value
+     * @return CouponStatus
+     */
+    @Override
+    public CouponStatus convertToEntityAttribute(Integer code) {
+        return CouponStatus.convert(code);
+    }
 }

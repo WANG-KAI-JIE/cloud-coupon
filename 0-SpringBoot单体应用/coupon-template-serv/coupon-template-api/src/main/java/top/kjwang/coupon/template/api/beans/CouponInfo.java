@@ -16,16 +16,16 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CouponInfo {
 
-	private Long id;
+    private Long id;
 
-	private Long templateId;
+    private Long templateId;
 
-	private Long userId;
+    private Long userId;
 
-	private Long shopId;
+    private Long shopId;
 
-	private Integer status;
+    private Integer status;
 
-	private CouponTemplateInfo template;
+    private CouponTemplateInfo template;
 
 }

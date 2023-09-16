@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3a479b9a-17bd-45f1-b9b9-a9559bf8b184",
+		"_postman_id": "b3ad485b-1efe-4aba-aae2-cbe587cbb21a",
 		"name": "优惠券项目 Spring Boot 阶段",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26048623"
+		"_exporter_id": "2899004"
 	},
 	"item": [
 		{
@@ -157,7 +157,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"pageSize\":1,\n    \"page\":0,\n    \"type\":1\n}",
+							"raw": "{\n    \"pageSize\":2,\n    \"page\":0,\n    \"type\":1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -188,7 +188,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"name\":\"测试1\",\n\"desc\":\"测试desc\",\n\"type\": \"1\",\n\"total\":100,\n\"available\": true,\n\"rule\":{\n    \"limication\":10,\n    \"discount\": {\n        \"quota\":1,\n        \"base\":20\n    }\n}\n}",
+							"raw": "{\n    \"name\": \"测试1\",\n    \"desc\": \"测试desc\",\n    \"type\": \"1\",\n    \"total\": 100,\n    \"available\": true,\n    \"rule\": {\n        \"limication\": 10,\n        \"discount\": {\n            \"quota\": 1,\n            \"base\": 20\n        }\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -233,7 +233,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:20000/template/getTemplate?id=2",
+							"raw": "localhost:20000/template/getTemplate?id=1",
 							"host": [
 								"localhost"
 							],
@@ -245,7 +245,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -264,7 +264,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"products\": [\n        {\n            \"price\" : 3000,\n            \"count\": 2,\n            \"shopId\": 3\n        },\n        {\n            \"price\" : 1000,\n            \"count\": 4,\n            \"shopId\":1\n        }\n    ],\n    \"couponId\": 10,\n    \"couponInfos\": [\n        {    \"id\": 10,\n            \"templateId\":2,\n            \"userId\":null,\n            \"shopId\":null,\n            \"template\": {\n                \"name\":\"单店满减\",\n                \"desc\":\"满40减5\",\n                \"type\": \"1\",\n                \"available\": true,\n                \"shopId\" : 1, \n                \"rule\":{\n                    \"limitation\":10,\n                    \"discount\": {\n                        \"quota\":500,\n                        \"threshold\":4000\n                    }\n                }\n            }\n        }\n    ],\n    \"userId\":1\n}",
+							"raw": "{\n    \"products\": [\n        {\n            \"price\": 3000,\n            \"count\": 2,\n            \"shopId\": 3\n        },\n        {\n            \"price\": 1000,\n            \"count\": 4,\n            \"shopId\": 1\n        }\n    ],\n    \"couponId\": 3,\n    \"couponInfos\": [\n        {\n            \"id\": 10,\n            \"templateId\": 2,\n            \"userId\": null,\n            \"shopId\": null,\n            \"template\": {\n                \"name\": \"单店满减\",\n                \"desc\": \"满40减5\",\n                \"type\": \"1\",\n                \"available\": true,\n                \"shopId\": 1,\n                \"rule\": {\n                    \"limitation\": 10,\n                    \"discount\": {\n                        \"quota\": 500,\n                        \"threshold\": 4000\n                    }\n                }\n            }\n        }\n    ],\n    \"userId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -304,7 +304,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"userId\": 1,\n    \"couponTemplateId\": 2\n}",
+							"raw": "{\n    \"userId\": 1,\n    \"couponTemplateId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -332,7 +332,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"products\": [\n        {\n            \"price\" : 3000,\n            \"count\": 2,\n            \"shopId\": 3\n        },\n        {\n            \"price\" : 1000,\n            \"count\": 10,\n            \"shopId\":1\n        }\n    ],\n    \"couponId\": 11,\n    \"userId\":1\n}",
+							"raw": "{\n    \"products\": [\n        {\n            \"price\" : 3000,\n            \"count\": 2,\n            \"shopId\": 3\n        },\n        {\n            \"price\" : 1000,\n            \"count\": 10,\n            \"shopId\":1\n        }\n    ],\n    \"couponId\": 1,\n    \"userId\":1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,11 +368,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:20000/coupon-customer/findCoupon",
+							"raw": "localhost:20001/coupon-customer/findCoupon",
 							"host": [
 								"localhost"
 							],
-							"port": "20000",
+							"port": "20001",
 							"path": [
 								"coupon-customer",
 								"findCoupon"
@@ -388,7 +388,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"products\": [\n        {\n            \"price\" : 3000,\n            \"count\": 2,\n            \"shopId\": 3\n        },\n        {\n            \"price\" : 1000,\n            \"count\": 10,\n            \"shopId\":1\n        }\n    ],\n    \"couponIDs\": [10,11],\n    \"userId\":1\n}",
+							"raw": "{\n    \"products\": [\n        {\n            \"price\" : 3000,\n            \"count\": 2,\n            \"shopId\": 3\n        },\n        {\n            \"price\" : 1000,\n            \"count\": 10,\n            \"shopId\":1\n        }\n    ],\n    \"couponIDs\": [1,2,3],\n    \"userId\":1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -417,7 +417,8 @@
 							{
 								"key": "traffic-version",
 								"value": "123",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -430,7 +431,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:20001/coupon-customer/deleteCoupon?userId=1&couponId=11",
+							"raw": "localhost:20001/coupon-customer/deleteCoupon?userId=1&couponId=2",
 							"host": [
 								"localhost"
 							],
@@ -446,7 +447,7 @@
 								},
 								{
 									"key": "couponId",
-									"value": "11"
+									"value": "2"
 								}
 							]
 						}

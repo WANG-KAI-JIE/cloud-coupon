@@ -7,11 +7,23 @@ import top.kjwang.coupon.calculation.api.beans.SimulationResponse;
 
 /**
  * @author kjwang
- * @date 2023/9/8 18:08
+ * @date 2023/9/8
  * @description CouponCalculationService
- */
+ **/
 public interface CouponCalculationService {
-	ShoppingCart calculateOrderPrice(@RequestBody ShoppingCart cart);
+    /**
+     * 订单价格计算
+     *
+     * @param cart 购物车
+     * @return 计算结果
+     */
+    ShoppingCart calculateOrderPrice(@RequestBody ShoppingCart cart);
 
-	SimulationResponse simulateOrder(@RequestBody SimulationOrder cart);
+    /**
+     * 订单价格试算
+     *
+     * @param cart 购物车
+     * @return 试算结果
+     */
+    SimulationResponse simulateOrder(@RequestBody SimulationOrder cart);
 }

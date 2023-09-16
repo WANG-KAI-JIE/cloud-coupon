@@ -11,22 +11,22 @@ import java.util.List;
 
 /**
  * @author kjwang
- * @date 2023/9/8 16:37
- * @description SimulationOrder
- */
-
+ * @date 2023/9/8
+ * @description SimulationOrder——试算订单最优的优惠券
+ **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SimulationOrder {
-	@NotEmpty
-	private List<Product> products;
 
-	@NotEmpty
-	private List<Long> couponIDs;
+    @NotEmpty
+    private List<Product> products;
 
-	private List<CouponInfo> couponInfos;
+    @NotEmpty
+    private List<Long> couponIDs;
 
-	@NotNull
-	private Long userId;
+    private List<CouponInfo> couponInfos;
+
+    @NotNull
+    private Long userId;
 }
