@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="coupon-customer-impl-1.0-SNAPSHOT">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-impl/target/coupon-customer-impl-1.0-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

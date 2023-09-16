@@ -6,18 +6,80 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="coupon-customer-dao (1)" />
+        <module name="coupon-customer-dao (3)" />
+        <module name="coupon-customer-impl (2)" />
+        <module name="coupon-template-dao (2)" />
+        <module name="coupon-template-impl (2)" />
+        <module name="coupon-customer-api (3)" />
+        <module name="coupon-customer-api (1)" />
+        <module name="coupon-middleware-serv (3)" />
+        <module name="coupon-middleware-serv (1)" />
+        <module name="coupon-template-api (2)" />
+        <module name="coupon-calculation-api (1)" />
+        <module name="coupon-calculation-api (3)" />
+        <module name="coupon-calculation-impl (3)" />
+        <module name="coupon-calculation-impl (1)" />
+        <module name="coupon-customer-dao (2)" />
+        <module name="coupon-customer-impl (3)" />
+        <module name="coupon-template-dao (3)" />
+        <module name="coupon-template-dao (1)" />
+        <module name="coupon-template-impl (3)" />
+        <module name="coupon-customer-impl (1)" />
+        <module name="coupon-template-impl (1)" />
+        <module name="coupon-customer-api (2)" />
+        <module name="coupon-template-api (1)" />
+        <module name="coupon-middleware-serv (2)" />
+        <module name="coupon-template-api (3)" />
+        <module name="coupon-calculation-api (2)" />
+        <module name="coupon-calculation-impl (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cloud-coupon" target="17" />
       <module name="coupon-calculation-api" target="17" />
       <module name="coupon-calculation-impl" target="17" />
       <module name="coupon-calculation-serv" target="17" />
+      <module name="coupon-customer-api" target="17" />
+      <module name="coupon-customer-dao" target="17" />
+      <module name="coupon-customer-impl" target="17" />
+      <module name="coupon-customer-serv" target="17" />
+      <module name="coupon-middleware-serv" target="17" />
+      <module name="coupon-template-api" target="17" />
+      <module name="coupon-template-dao" target="17" />
+      <module name="coupon-template-impl" target="17" />
+      <module name="coupon-template-serv" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="coupon-calculation-api" options="-parameters" />
-      <module name="coupon-calculation-impl" options="-parameters" />
+      <module name="coupon-calculation-api (1)" options="-parameters" />
+      <module name="coupon-calculation-api (2)" options="-parameters" />
+      <module name="coupon-calculation-api (3)" options="-parameters" />
+      <module name="coupon-calculation-impl (1)" options="-parameters" />
+      <module name="coupon-calculation-impl (2)" options="-parameters" />
+      <module name="coupon-calculation-impl (3)" options="-parameters" />
+      <module name="coupon-customer-api (1)" options="-parameters" />
+      <module name="coupon-customer-api (2)" options="-parameters" />
+      <module name="coupon-customer-api (3)" options="-parameters" />
+      <module name="coupon-customer-dao (1)" options="-parameters" />
+      <module name="coupon-customer-dao (2)" options="-parameters" />
+      <module name="coupon-customer-dao (3)" options="-parameters" />
+      <module name="coupon-customer-impl (1)" options="-parameters" />
+      <module name="coupon-customer-impl (2)" options="-parameters" />
+      <module name="coupon-customer-impl (3)" options="-parameters" />
+      <module name="coupon-middleware-serv (1)" options="-parameters" />
+      <module name="coupon-middleware-serv (2)" options="-parameters" />
+      <module name="coupon-middleware-serv (3)" options="-parameters" />
+      <module name="coupon-template-api (1)" options="-parameters" />
+      <module name="coupon-template-api (2)" options="-parameters" />
+      <module name="coupon-template-api (3)" options="-parameters" />
+      <module name="coupon-template-dao (1)" options="-parameters" />
+      <module name="coupon-template-dao (2)" options="-parameters" />
+      <module name="coupon-template-dao (3)" options="-parameters" />
+      <module name="coupon-template-impl (1)" options="-parameters" />
+      <module name="coupon-template-impl (2)" options="-parameters" />
+      <module name="coupon-template-impl (3)" options="-parameters" />
     </option>
   </component>
 </project>

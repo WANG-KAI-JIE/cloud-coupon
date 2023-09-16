@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/coupon-calculation-api/coupon-calculation-api.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/coupon-calculation-api/coupon-calculation-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/coupon-calculation-impl/coupon-calculation-impl.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/coupon-calculation-impl/coupon-calculation-impl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-api/coupon-customer-api.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-api/coupon-customer-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-dao/coupon-customer-dao.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-dao/coupon-customer-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-impl/coupon-customer-impl.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-customer-serv/coupon-customer-impl/coupon-customer-impl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-template-serv/coupon-template-api/coupon-template-api.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-template-serv/coupon-template-api/coupon-template-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-template-serv/coupon-template-dao/coupon-template-dao.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-template-serv/coupon-template-dao/coupon-template-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/0-SpringBoot单体应用/coupon-template-serv/coupon-template-impl/coupon-template-impl.iml" filepath="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-template-serv/coupon-template-impl/coupon-template-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cloud-coupon-main.iml" filepath="$PROJECT_DIR$/.idea/cloud-coupon-main.iml" />
     </modules>
   </component>
 </project>

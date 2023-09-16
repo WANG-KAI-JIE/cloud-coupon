@@ -4,17 +4,13 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/pom.xml" />
+        <option value="$PROJECT_DIR$/0-SpringBoot单体应用/pom.xml" />
+        <option value="$PROJECT_DIR$/2-Nacos+OpenFeign微服务通信/pom.xml" />
+        <option value="$PROJECT_DIR$/1-Nacos+WebClient微服务远程调用/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/coupon-calculation-api/pom.xml" />
-        <option value="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/coupon-calculation-impl/pom.xml" />
-        <option value="$PROJECT_DIR$/0-SpringBoot单体应用/coupon-calculation-serv/pom.xml" />
-      </set>
-    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
 </project>
