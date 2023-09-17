@@ -11,7 +11,7 @@ spring:
     nacos:
       discovery:
         # 可以配置多个，逗号分隔
-        server-addr: http://101.200.120.36:8848
+        server-addr: http://47.98.246.199:8848
         # 默认就是application name，一般不用配置
         service: coupon-calculation-serv
         # nacos客户端向服务端发送心跳的时间间隔，时间单位其实是ms

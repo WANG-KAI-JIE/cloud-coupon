@@ -63,7 +63,7 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
-
+    <!--以下新增-->
     <build>
         <plugins>
             <plugin>

@@ -41,7 +41,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-
+<!--以下新增-->
     <build>
         <plugins>
             <plugin>

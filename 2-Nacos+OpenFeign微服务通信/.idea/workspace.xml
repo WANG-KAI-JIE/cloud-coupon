@@ -44,7 +44,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "spring.configuration.checksum": "cafccde5d5de0b3c06b89dcced84ed94",
+    "spring.configuration.checksum": "1c133a720f26522b4b2acf291534cef2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -89,6 +89,7 @@
       <workItem from="1694873488794" duration="60000" />
       <workItem from="1694873554233" duration="318000" />
       <workItem from="1694874162809" duration="12000" />
+      <workItem from="1694933469188" duration="2638000" />
     </task>
     <servers />
   </component>
