@@ -1,43 +1,19 @@
 server:
-  port: 20008
+  port: 20002
+  # 在返回给页面的结果里，把错误信息添加到message里
+  error:
+    include-message: always
+
 spring:
   application:
-    # 定义应用名称
-    name: coupon-template-serv
-  datasource:
-    # mysql数据源
-    url: jdbc:mysql://127.0.0.1:3306/coupon_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
-    username: root
-    password: 12345678
-    # 指定数据源 DataSource 类型
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    # 数据库连接池参数配置，比如大小、超时时间、是否自动提交等
-    hikari:
-      pool-name: CloudCouponHikari
-      connection-timeout: 5000
-      idle-timeout: 30000
-      maximum-pool-size: 10
-      minimum-idle: 5
-      max-lifetime: 60000
-      auto-commit: true
-  jpa:
-    show-sql: true
-    hibernate:
-      # 在生产环境全部为 none，防止 ddl 结构被自动执行，破坏生产数据
-      ddl-auto: none
-    # 在日志中打印经过格式化的SQL语句
-    properties:
-      hibernate.format_sql: true
-      hibernate.show_sql: true
-    open-in-view: false
+    name: coupon-calculation-serv
   cloud:
     nacos:
       discovery:
         # 可以配置多个，逗号分隔
         server-addr: localhost:8848
         # 默认就是application name，一般不用配置
-        service: coupon-template-serv
+        service: coupon-calculation-serv
         # nacos客户端向服务端发送心跳的时间间隔，时间单位其实是ms
         heart-beat-interval: 5000
         # 服务端没有接受到客户端心跳请求就将其设为不健康的时间间隔，默认为15s
@@ -47,7 +23,7 @@ spring:
         # ip: 172.20.7.228
         # 元数据部分 - 可以自己随便定制
         metadata:
-          myData: abc
+          myData: xyz
         # 客户端在启动时是否读取本地配置项(一个文件)来获取服务列表
         # 注：推荐该值为false，若改成true。则客户端会在本地的一个文件中保存服务信息，当下次宕机启动时，会优先读取本地的配置对外提供服务。
         naming-load-cache-at-start: false
@@ -64,4 +40,15 @@ spring:
         watch:
           enabled: true
         watch-delay: 30000
+
+logging:
+  level:
+    top.kjwang.coupon: debug
+
+# 开启所有management端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
