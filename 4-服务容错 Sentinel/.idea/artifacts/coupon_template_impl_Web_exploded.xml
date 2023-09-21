@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="coupon-template-impl:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/coupon_template_impl_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="coupon-template-impl/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="coupon-template-impl" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
