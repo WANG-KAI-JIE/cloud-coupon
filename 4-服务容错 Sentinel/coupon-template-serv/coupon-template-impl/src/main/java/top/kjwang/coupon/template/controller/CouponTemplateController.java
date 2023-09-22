@@ -82,21 +82,21 @@ public class CouponTemplateController {
      * @return {@link Map<Long, CouponTemplateInfo>}
      */
     @GetMapping("/getBatch")
-    @SentinelResource(value = "getTemplateInBatch",blockHandler = "getTemplateInBatchBlock")
+    @SentinelResource(value = "getTemplateInBatch",blockHandler = "getTemplateInBatchBlock",fallback = "getTemplateInBatchFallback")
     public Map<Long, CouponTemplateInfo> getTemplateInBatch(@RequestParam("ids") Collection<Long> ids) {
         // 如果接口被熔断，观察以下日志是否被打印
-//        log.info("getTemplateInBatch: {}", JSON.toJSONString(ids));
+        log.info("getTemplateInBatch: {}", JSON.toJSONString(ids));
         log.info("getTemplateInBatch 被调用!");
         // 当 Template 批量查询服务的 ID 数量为 3 时抛出异常，验证熔断器的效果
 //        if (ids.size() == 3) {
 //            throw new RuntimeException();
 //        }
-//        //增加响应时间的休眠
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        //增加响应时间的休眠
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return couponTemplateService.getTemplateInfoMap(ids);
     }
 
@@ -108,7 +108,7 @@ public class CouponTemplateController {
      * @return {@link Map<Long,CouponTemplateInfo}
      */
     public Map<Long, CouponTemplateInfo> getTemplateInBatchBlock(Collection<Long> ids, BlockException exception) {
-        log.info("接口被限流");
+        log.info("批量查询优惠券模版接口被限流");
         CouponTemplateInfo couponTemplateInfo = CouponTemplateInfo.builder()
                 .name("限流后返回的优惠券")
                 .desc("限流后返回的优惠券")
@@ -120,19 +120,24 @@ public class CouponTemplateController {
         return map;
     }
 
-//
-//    public Map<Long, CouponTemplateInfo> getTemplateInBatchBlock(Collection<Long> ids) {
-//        log.info("批量查询优惠券模版接口被降级");
-//        CouponTemplateInfo couponTemplateInfo = CouponTemplateInfo.builder()
-//                .name("降级后返回的优惠券")
-//                .desc("降级后返回的优惠券")
-//                .type("1")
-//                .rule(null)
-//                .build();
-//        Map<Long,CouponTemplateInfo> map = new HashMap<>();
-//        map.put(1L,couponTemplateInfo);
-//        return map;
-//    }
+    /**
+     * 批量查询优惠券模版接口被降级时的方法
+     *
+     * @param ids 模版id
+     * @return {@link  Map<Long,CouponTemplateInfo>}
+     */
+    public Map<Long, CouponTemplateInfo> getTemplateInBatchFallback(Collection<Long> ids) {
+        log.info("批量查询优惠券模版接口被降级");
+        CouponTemplateInfo couponTemplateInfo = CouponTemplateInfo.builder()
+                .name("降级后返回的优惠券")
+                .desc("降级后返回的优惠券")
+                .type("1")
+                .rule(null)
+                .build();
+        Map<Long,CouponTemplateInfo> map = new HashMap<>();
+        map.put(1L,couponTemplateInfo);
+        return map;
+    }
     /**
      * 搜索模板
      *
