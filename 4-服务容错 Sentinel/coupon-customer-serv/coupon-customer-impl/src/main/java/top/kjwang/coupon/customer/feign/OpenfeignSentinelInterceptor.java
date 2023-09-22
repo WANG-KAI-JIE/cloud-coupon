@@ -15,6 +15,7 @@ public class OpenfeignSentinelInterceptor implements RequestInterceptor {
 
 	@Override
 	public void apply(RequestTemplate template) {
-		template.header("SentinelSource","coupon-custom-serv");
+//		从服务请求的 Header 中获取 SentinelSource 变量的值，作为调用源的 name
+		template.header("SentinelSource","coupon-customer-serv");
 	}
 }

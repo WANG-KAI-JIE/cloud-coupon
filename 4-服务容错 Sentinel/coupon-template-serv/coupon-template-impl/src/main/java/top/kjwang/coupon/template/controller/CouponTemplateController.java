@@ -85,7 +85,7 @@ public class CouponTemplateController {
     @SentinelResource(value = "getTemplateInBatch",blockHandler = "getTemplateInBatchBlock")
     public Map<Long, CouponTemplateInfo> getTemplateInBatch(@RequestParam("ids") Collection<Long> ids) {
         // 如果接口被熔断，观察以下日志是否被打印
-        log.info("getTemplateInBatch: {}", JSON.toJSONString(ids));
+//        log.info("getTemplateInBatch: {}", JSON.toJSONString(ids));
         log.info("getTemplateInBatch 被调用!");
         // 当 Template 批量查询服务的 ID 数量为 3 时抛出异常，验证熔断器的效果
 //        if (ids.size() == 3) {
