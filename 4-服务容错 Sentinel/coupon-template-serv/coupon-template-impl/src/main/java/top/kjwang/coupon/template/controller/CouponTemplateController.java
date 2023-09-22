@@ -92,11 +92,11 @@ public class CouponTemplateController {
 //            throw new RuntimeException();
 //        }
         //增加响应时间的休眠
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         return couponTemplateService.getTemplateInfoMap(ids);
     }
 
