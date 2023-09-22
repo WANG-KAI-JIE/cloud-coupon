@@ -7,24 +7,24 @@ server:
 spring:
   main:
     allow-bean-definition-overriding: true
-#  application:
-#    name: coupon-customer-serv
-#  datasource:
-#    # mysql数据源
-#    url: jdbc:mysql://127.0.0.1:3306/coupon_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
-#    username: root
-#    password: 12345678
-#    type: com.zaxxer.hikari.HikariDataSource
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    # 连接池
-#    hikari:
-#      pool-name: CloudCouponHikari
-#      connection-timeout: 5000
-#      idle-timeout: 30000
-#      maximum-pool-size: 10
-#      minimum-idle: 5
-#      max-lifetime: 60000
-#      auto-commit: true
+  application:
+    name: coupon-customer-serv
+  datasource:
+    # mysql数据源
+    url: jdbc:mysql://localhost:3306/coupon_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: 12345678
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接池
+    hikari:
+      pool-name: CloudCouponHikari
+      connection-timeout: 5000
+      idle-timeout: 30000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      max-lifetime: 60000
+      auto-commit: true
   jpa:
     show-sql: true
     hibernate:
@@ -73,6 +73,14 @@ spring:
         port: 8719
       # dashboard 地址
         dashboard: localhost:8080
+      datasource:
+        kjwang-flow:
+          nacos:
+            server-addr: localhost:8848
+            namespace: dev
+            groupId: SENTINEL_GROUP
+            dataId: ${spring.application.name}-flow-rules
+            rule-type: flow
     # 负载均衡器缓存
     loadbalancer:
       cache:
