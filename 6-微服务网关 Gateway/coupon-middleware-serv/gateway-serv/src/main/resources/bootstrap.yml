@@ -1,0 +1,19 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: coupon-gateway-serv
+  cloud:
+    nacos:
+      config:
+        # 可以配置多个，逗号分隔
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: dev
+        group: myGroup
+        timeout: 5000
+        config-long-poll-timeout: 100000
+        config-retry-time: 2000
+        max-retry: 3
+        #开启监听和自动发现
+        refresh-enabled: true
